@@ -1,9 +1,3 @@
-﻿using Hangman.Display;
+﻿using Hangman.GameLoop;
 
-class Program
-{
-    static void Main()
-    {
-        Display.WelcomeMessage();
-    }
-}
+new GameLoop();
