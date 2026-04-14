@@ -60,6 +60,7 @@ lib/
  Display.cs
  GameLoop.cs
  GameRule.cs
+ PlayerInputs.cs
 obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
  JeuDuPendu-C-.AssemblyInfo.cs
