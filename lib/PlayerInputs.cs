@@ -1,11 +1,14 @@
-namespace JeuDuPendu_C_.lib;
+namespace Hangman.PlayerInputs;
 
 public class PlayerInputs
 {
     public static string AskStringInput()
     {
         var mot = Console.ReadLine();
-        if (mot == null){return "";}
+        if (mot == null)
+        {
+            return "";
+        }
         return mot;
     }
 
@@ -14,9 +17,11 @@ public class PlayerInputs
         return Console.ReadKey().KeyChar;
     }
 
-    public static int? AskNumberInput()
+    public static int AskNumberInput()
     {
-        return Convert.ToInt32(Console.ReadLine());
+        var input = Console.ReadLine();
+        if (input == null) return 0;
+        return Convert.ToInt32(input);
     }
     
     public static int? AskDigitInput()

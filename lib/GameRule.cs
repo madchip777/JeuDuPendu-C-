@@ -1,4 +1,4 @@
-using System.Reflection;
+using System.Text;
 
 namespace Hangman.GameRule
 {
@@ -32,6 +32,7 @@ namespace Hangman.GameRule
                 if (toReveal.Contains(i))
                 {
                     result += word[i];
+                    result = ReplaceAllOccurence(word, result, word[i].ToString());
                 }
                 else
                 {
@@ -39,6 +40,46 @@ namespace Hangman.GameRule
                 }
             }
             return result;
+        }
+
+        public static string PlayerGuess(string word, string input, string guess)
+        {
+            if (input.Length == 0)
+            {
+                return "";
+            }
+            
+            if (input.Length > 1 && input.ToLower().Equals(word))
+            {
+                return word;
+            }
+            else
+            {
+                if (word.Contains(input))
+                {
+                    return ReplaceAllOccurence(word, guess, input);
+                }
+                return guess;
+            }
+        }
+
+    public static string ReplaceAllOccurence(string word, string guess, string input)
+        {
+            char letterInput = input[0];
+            StringBuilder result = new StringBuilder(guess);
+            for (int i = 0; i < guess.Length; i++)
+            {
+                if (word[i] == letterInput && result[i] == '_')
+                {
+                    result[i] = letterInput;
+                }
+            }
+            return result.ToString();
+        }
+
+    public static bool HasWon(string word, string guess)
+        {
+            return word.Equals(guess);
         }
 
     }
